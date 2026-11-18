@@ -1,5 +1,7 @@
 export type EventCard = {
   slug: string;
+  image: string;
+  imageAlt: string;
   title: string;
   kicker: string;
   tone: "red" | "blue" | "amber";
@@ -14,6 +16,8 @@ export type EventCard = {
 export const events: EventCard[] = [
   {
     slug: "afterimage",
+    image: "/events/afterimage.jpg",
+    imageAlt: "A dancer in a flowing red dress caught mid-movement on a dark stage",
     title: "Afterimage",
     kicker: "A night in motion",
     tone: "red",
@@ -26,6 +30,8 @@ export const events: EventCard[] = [
   },
   {
     slug: "soft-signal",
+    image: "/events/soft-signal.jpg",
+    imageAlt: "A musician working a modular synthesiser in blue stage smoke",
     title: "Soft Signal",
     kicker: "Sound without edges",
     tone: "blue",
@@ -38,6 +44,8 @@ export const events: EventCard[] = [
   },
   {
     slug: "low-light-assembly",
+    image: "/events/low-light-assembly.jpg",
+    imageAlt: "Hands on the keys of a brass saxophone in low light",
     title: "Low Light Assembly",
     kicker: "Closer to the sound",
     tone: "amber",

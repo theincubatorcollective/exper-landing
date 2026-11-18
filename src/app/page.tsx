@@ -76,6 +76,7 @@ export default function Home() {
             {events.map((e) => (
               <article className="card" key={e.slug}>
                 <div className={`photo photo-${e.tone}`}>
+                  <Image src={e.image} alt={e.imageAlt} fill sizes="(max-width: 860px) 100vw, 33vw" />
                   <div className="plate">
                     <small>{e.kicker}</small>
                     <b>{e.title.toUpperCase()}</b>
@@ -95,6 +96,7 @@ export default function Home() {
         <section className="focus">
           <div className="wrap focus-grid">
             <div className="photo photo-mono">
+              <Image src="/events/focus.jpg" alt="Black-and-white close-up portrait of a man laughing" fill sizes="(max-width: 860px) 100vw, 50vw" />
               <div className="plate">
                 <small>A night in motion</small>
                 <b>SAMM HENSHAW</b>

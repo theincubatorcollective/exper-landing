@@ -74,7 +74,9 @@ h1 { font-size: clamp(52px, 9vw, 130px); line-height: .98; font-weight: 500; let
 .photo-mono { background: radial-gradient(60% 60% at 50% 40%, #c8c8c8 0, #6a6a6a 50%, #1a1a1a 90%); }
 .photo-party { background: linear-gradient(90deg, #6a7a0c 0, #a43a14 35%, #d4561b 65%, #3a1a0c); }
 
-.plate { position: absolute; left: 4%; right: 4%; bottom: 5%; background: #000; padding: 12px 14px; display: grid; gap: 4px; }
+.card .photo img, .focus .photo img { object-fit: cover; }
+.focus .photo img { object-position: 50% 60%; }
+.plate { z-index: 1; position: absolute; left: 4%; right: 4%; bottom: 5%; background: #000; padding: 12px 14px; display: grid; gap: 4px; }
 .plate small { font-size: 7px; color: var(--muted); }
 .plate small:first-child { color: var(--lime); }
 .plate b { font-size: clamp(20px, 2.6vw, 34px); font-weight: 600; letter-spacing: -.01em; line-height: 1.05; }
