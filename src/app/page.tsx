@@ -1,11 +1,11 @@
+import Image from "next/image";
 import { categories, events } from "@/lib/events";
 
 function Logo() {
   return (
     <a className="logo" href="#" aria-label="EXPER home">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-        <path d="M1 1l12 12M13 1L1 13" />
-      </svg>
+      <Image src="/logo.png" alt="" width={24} height={23} priority />
+
       EXPER
     </a>
   );
@@ -30,7 +30,7 @@ export default function Home() {
         <section className="hero wrap">
           <div className="meta-row">
             <span className="tag">EXPER / Go be part of it</span>
-            <span className="tag muted">Launching soon · London</span>
+            <span className="tag muted">Launching soon</span>
           </div>
           <div className="hero-grid">
             <h1>Life isn&apos;t a spectator sport.</h1>
@@ -39,7 +39,9 @@ export default function Home() {
               <a className="btn" href="#events">Explore experiences</a>
             </div>
           </div>
-          <figure className="hero-img photo photo-crowd" role="img" aria-label="Crowd with hands raised under red stage light" />
+          <figure className="hero-img photo">
+            <Image src="/hero.jpg" alt="Crowd with hands raised under red stage light" fill sizes="100vw" priority />
+          </figure>
           <div className="meta-row small">
             <span className="muted">In the room. Not on the sidelines.</span>
             <a className="lime" href="#events">Discover</a>
@@ -111,8 +113,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="band photo photo-party">
-          <p>There&apos;s going. Then there&apos;s being there.</p>
+        <section className="band">
+          <Image src="/party.jpg" alt="A woman holding a red cup at a kitchen table while friends gather on a sofa in the warm light behind her" fill sizes="100vw" />
+          <div className="band-copy">
+            <span className="tag">04 / MORE THAN A TICKET</span>
+            <p>There&apos;s going. Then there&apos;s being there.</p>
+          </div>
         </section>
 
         <section className="wrap appsec" id="app">
