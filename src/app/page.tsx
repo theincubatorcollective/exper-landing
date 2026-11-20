@@ -1,11 +1,13 @@
 import Image from "next/image";
-import { categories, events } from "@/lib/events";
+import { events } from "@/lib/events";
+import { RotatingHeadline } from "./rotating-headline";
+import { HowItWorks } from "./how-it-works";
+import { TryIt } from "./try-it";
 
 function Logo() {
   return (
     <a className="logo" href="#" aria-label="EXPER home">
       <Image src="/logo.png" alt="" width={24} height={23} priority />
-
       EXPER
     </a>
   );
@@ -15,166 +17,135 @@ export default function Home() {
   return (
     <>
       <header className="nav">
-        <Logo />
-        <nav className="nav-mid" aria-label="Primary">
-          <a href="#events" className="active">Explore</a>
-          <a href="#search">Search events</a>
-        </nav>
-        <div className="nav-right">
-          <a href="#">Log in</a>
-          <a className="btn-outline" href="#app">App coming soon</a>
+        <div className="wrap nav-in">
+          <Logo />
+          <nav className="nav-mid" aria-label="Primary">
+            <a href="#why">Why</a>
+            <a href="#how">How it works</a>
+            <a href="#events">Find Events</a>
+            <a href="#try">Your Collectibles</a>
+            <a href="#organisers">Organisers</a>
+          </nav>
+          <a className="btn" href="#app">App coming soon</a>
         </div>
       </header>
 
       <main>
-        <section className="hero wrap">
-          <div className="meta-row">
-            <span className="tag">EXPER / Go be part of it</span>
-            <span className="tag muted">Launching soon</span>
-          </div>
-          <div className="hero-grid">
-            <h1>Life isn&apos;t a spectator sport.</h1>
-            <div className="hero-side">
-              <p>Find the nights, sounds and people that move you. Discover experiences. Then become part of them.</p>
-              <a className="btn" href="#events">Explore experiences</a>
+        <section className="hero">
+          <Image src="/party.jpg" alt="" fill priority sizes="100vw" />
+          <div className="wrap">
+            <div className="hero-copy">
+              <span className="tag">EXPER / Go be part of it</span>
+              <RotatingHeadline />
+              <div className="hero-cta">
+                <a className="btn" href="#how">See how it works</a>
+                <a className="btn-ghost" href="#events">Browse events</a>
+              </div>
             </div>
           </div>
-          <figure className="hero-img photo">
-            <Image src="/hero.jpg" alt="Crowd with hands raised under red stage light" fill sizes="100vw" priority />
-          </figure>
-          <div className="meta-row small">
-            <span className="muted">In the room. Not on the sidelines.</span>
-            <a className="lime" href="#events">Discover</a>
+        </section>
+
+        <section className="sec" id="why">
+          <div className="wrap why-grid">
+            <div className="story">
+              <p><b>Picture this.</b> <span className="muted">The family photo album.</span></p>
+              <p className="muted">Every event, there you are. In the corner. Half a head. Or behind the camera.</p>
+              <p><b>You were there.</b> <span className="muted">You just weren&apos;t in the picture.</span></p>
+              <p className="muted">Life does that too. You can be at an experience and still miss the moment.</p>
+              <p className="lime">So we made EXPER. To put you in it.</p>
+            </div>
+            <figure className="moment">
+              <div className="moment-img">
+                <Image src="/moment.jpg" alt="A man in a cap on a sofa, lit warm orange, with his shadow on the wall behind him" fill sizes="(max-width: 860px) 100vw, 430px" />
+              </div>
+              <figcaption className="tiny muted">In the moment, not at the edge of it.</figcaption>
+            </figure>
           </div>
         </section>
 
-        <section className="search wrap" id="search">
-          <h2 className="h-md">What are you getting into?</h2>
-          <form className="search-row" role="search">
-            <label className="search-box">
-              <span className="sr-only">Search artists, events, places</span>
-              <input type="search" placeholder="Search artists, events, places" />
-            </label>
-            <button type="button" className="pill">London</button>
-            <button type="button" className="pill">Any date</button>
-          </form>
-          <div className="chips" role="group" aria-label="Categories">
-            {categories.map((c, i) => (
-              <button key={c} className={i === 0 ? "chip on" : "chip"}>{c}</button>
-            ))}
+        <section className="sec alt">
+          <div className="wrap">
+            <span className="tag">The idea</span>
+            <h2 className="h-xl">A sure way to be part of the moments you belong in.</h2>
           </div>
-          <p className="tiny muted">A preview of what&apos;s coming. Sample events, dates and prices. Tickets aren&apos;t on sale yet.</p>
         </section>
 
-        <section className="wrap events" id="events">
-          <div className="meta-row">
-            <span className="tag">Coming soon · On the horizon</span>
-            <a className="tiny lime" href="#">Explore all events</a>
+        <section className="sec" id="how">
+          <div className="wrap">
+            <span className="tag">How it works</span>
+            <h2 className="h-lg">Six steps. One night you&apos;ll keep.</h2>
+            <p className="tiny muted how-hint">Tap a step.</p>
+            <HowItWorks />
           </div>
-          <h2 className="h-lg">A good place to start.</h2>
-          <div className="cards">
-            {events.map((e) => (
-              <article className="card" key={e.slug}>
-                <div className={`photo photo-${e.tone}`}>
-                  <Image src={e.image} alt={e.imageAlt} fill sizes="(max-width: 860px) 100vw, 33vw" />
-                  <div className="plate">
-                    <small>{e.kicker}</small>
-                    <b>{e.title.toUpperCase()}</b>
-                    <small>{e.day} / London</small>
+        </section>
+
+        <section className="sec" id="try">
+          <div className="wrap">
+            <TryIt />
+          </div>
+        </section>
+
+        <section className="sec" id="events">
+          <div className="wrap">
+            <span className="tag">On the horizon</span>
+            <h2 className="h-lg">A good place to start.</h2>
+            <p className="tiny muted events-note">Preview events. Sample dates and prices. Tickets aren&apos;t on sale yet.</p>
+            <div className="cards">
+              {events.map((e) => (
+                <article className="card" key={e.slug}>
+                  <div className="card-img">
+                    <Image src={e.image} alt={e.imageAlt} fill sizes="(max-width: 860px) 100vw, 360px" />
                   </div>
-                </div>
-                <p className="tiny muted">{e.day} · {e.time}</p>
-                <h3>{e.title}</h3>
-                <p className="tiny muted">{e.venue}<br />{e.genre}</p>
-                <p className="tiny">{e.price} + {e.fee} fee</p>
-                <p className="tiny lime">Tickets soon · preview</p>
-              </article>
-            ))}
+                  <h3>{e.title}</h3>
+                  <p className="tiny muted">{e.day} · {e.venue} · {e.price} + {e.fee} fee</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="focus">
-          <div className="wrap focus-grid">
-            <div className="photo photo-mono">
-              <Image src="/events/focus.jpg" alt="Black-and-white close-up portrait of a man laughing" fill sizes="(max-width: 860px) 100vw, 50vw" />
-              <div className="plate">
-                <small>A night in motion</small>
-                <b>SAMM HENSHAW</b>
-                <small>Sat 5 Dec / London</small>
+        <section className="sec" id="app">
+          <div className="wrap">
+            <div className="app-card">
+              <div>
+                <span className="tag">The EXPER app · Coming soon</span>
+                <h2 className="h-md">Don&apos;t just go. Get into it.</h2>
+                <p className="tiny muted">Tickets on the web first. The app follows.</p>
               </div>
-            </div>
-            <div className="focus-copy">
-              <span className="tag">In focus</span>
-              <h2 className="h-lg">Samm Henshaw&apos;s Live in Lagos.</h2>
-              <p className="muted">A night where left-field electronics meet the dance floor. Three fictional selectors. One room. A sound that stays with you.</p>
-              <hr />
-              <p className="tiny">Sat 5 Dec 2026 · 19:00–01:00 GMT<br /><span className="muted">The Relay Hall · London</span></p>
-              <p className="tiny muted">Sera Vale · Onda Index · Low Assembly<br />General admission £28.00 + £2.80 fee · sample</p>
-              <a className="btn" href="#">Discover Afterimage</a>
-            </div>
-          </div>
-        </section>
-
-        <section className="band">
-          <Image src="/party.jpg" alt="A woman holding a red cup at a kitchen table while friends gather on a sofa in the warm light behind her" fill sizes="100vw" />
-          <div className="band-copy">
-            <span className="tag">04 / MORE THAN A TICKET</span>
-            <p>There&apos;s going. Then there&apos;s being there.</p>
-          </div>
-        </section>
-
-        <section className="wrap appsec" id="app">
-          <span className="tag">What&apos;s coming</span>
-          <div className="app-card">
-            <div>
-              <span className="status"><i aria-hidden="true" />Coming soon</span>
-              <h2 className="h-lg">Don&apos;t just go.<br />Get into it.</h2>
-              <p className="muted small-p">The EXPER app is on its way. Join the room with prompts, live reactions and small missions, then keep the memories after the lights come up.</p>
               <div className="stores">
-                <span className="store-soon" aria-disabled="true">App Store <small>Coming soon</small></span>
-                <span className="store-soon" aria-disabled="true">Google Play <small>Coming soon</small></span>
-              </div>
-              <p className="tiny muted">Events and tickets on the web arrive first. The app follows.</p>
-            </div>
-            <div className="phone" role="img" aria-label="Preview of the EXPER app showing a live prompt and a mission">
-              <div className="phone-screen">
-                <small className="tag">In the room · Preview</small>
-                <b>What&apos;s tonight&apos;s headline?</b>
-                <span className="phone-opt">Sera Vale</span>
-                <span className="phone-opt on">Onda Index</span>
-                <span className="phone-opt">Low Assembly</span>
-                <small className="tiny muted">Mission 1 of 3 · Find a new corner of the room</small>
+                <span className="store-soon" aria-disabled="true">App Store · soon</span>
+                <span className="store-soon" aria-disabled="true">Google Play · soon</span>
               </div>
             </div>
           </div>
-          <ol className="roadmap" aria-label="App roadmap">
-            <li className="now"><span className="tag">Next up</span><p>Discover events and buy tickets on the web.</p></li>
-            <li><span className="tag">Then</span><p>The app, with prompts and live reactions in the room.</p></li>
-            <li><span className="tag">After that</span><p>Missions, then memories you keep after the night.</p></li>
-          </ol>
         </section>
 
-        <section className="wrap organisers">
-          <span className="tag">For the people who make it happen</span>
-          <div className="org-row">
-            <h2 className="h-lg">Make room for something different.</h2>
-            <a className="btn-outline" href="#">Organiser Access</a>
+        <section className="sec" id="organisers">
+          <div className="wrap org-row">
+            <div>
+              <span className="tag">For the people who make it happen</span>
+              <h2 className="h-lg">Make room for something different.</h2>
+            </div>
+            <a className="btn" href="#">Get Organiser Access</a>
           </div>
-          <p className="tiny muted">Bring your next experience to EXPER. Start with Organiser Access.</p>
         </section>
       </main>
 
-      <footer className="footer wrap">
-        <div className="foot-grid">
+      <footer className="footer">
+        <div className="wrap foot">
           <div>
             <Logo />
             <p className="tiny muted">Find your people. Be part of the moment.</p>
+            <p className="tiny muted">© 2026 EXPER. Public website concept. All events, venues and organisers shown are fictional.</p>
           </div>
-          <ul><li><a href="#">Help</a></li><li><a href="#">About</a></li><li><a href="#">Organiser Access</a></li></ul>
-          <ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">Refund policy</a></li></ul>
-          <ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">YouTube</a></li></ul>
+          <ul className="foot-links">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Refund policy</a></li>
+          </ul>
         </div>
-        <p className="tiny muted">© 2026 EXPER. Public website concept. All events, venues and organisers shown are fictional.</p>
       </footer>
     </>
   );
