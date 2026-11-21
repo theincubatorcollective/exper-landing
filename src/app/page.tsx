@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <figure className="moment">
               <div className="moment-img">
-                <Image src="/moment.jpg" alt="A man in a cap on a sofa, lit warm orange, with his shadow on the wall behind him" fill sizes="(max-width: 860px) 100vw, 430px" />
+                <Image src="/moment-portrait.jpg" alt="A man in a cap sitting back in an armchair in a warm orange room, his shadow on the wall behind him" fill sizes="(max-width: 860px) 100vw, 430px" />
               </div>
               <figcaption className="tiny muted">In the moment, not at the edge of it.</figcaption>
             </figure>
@@ -67,6 +67,24 @@ export default function Home() {
           <div className="wrap">
             <span className="tag">The idea</span>
             <h2 className="h-xl">A sure way to be part of the moments you belong in.</h2>
+            <div className="idea-cols">
+              <div className="idea-col">
+                <span className="tag">01</span>
+                <h3>Get in easily</h3>
+                <p>Discover events, buy tickets and check in without having to work out how the night goes.</p>
+              </div>
+              <div className="idea-col">
+                <span className="tag">02</span>
+                <h3>Join in while you&apos;re there</h3>
+                <p>React to the music, answer prompts and take on small challenges with your squad.</p>
+              </div>
+              <div className="idea-col">
+                <span className="tag">03</span>
+                <h3>Take something home</h3>
+                <p>Your participation becomes a one-of-one generative artwork: your own record of that night.</p>
+                <p>Your participation becomes collectibles such as one-of-one generative artwork and all your keepsakes all in one place.</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -111,10 +129,30 @@ export default function Home() {
                 <span className="tag">The EXPER app · Coming soon</span>
                 <h2 className="h-md">Don&apos;t just go. Get into it.</h2>
                 <p className="tiny muted">Tickets on the web first. The app follows.</p>
+                <div className="stores">
+                  <span className="store-soon" aria-disabled="true">
+                    <svg viewBox="0 0 384 512" width="20" height="26" fill="currentColor" aria-hidden="true">
+                      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                    </svg>
+                    <span className="store-txt"><small>Coming soon on the</small><b>App Store</b></span>
+                  </span>
+                  <span className="store-soon" aria-disabled="true">
+                    <svg viewBox="0 0 24 26" width="22" height="24" aria-hidden="true">
+                      <path d="M2.5 1.2 22 13 2.5 24.8Z" fill="currentColor" />
+                      <path d="M2.5 1.2 13.6 13 2.5 24.8M13.6 13 22 13" fill="none" stroke="#0d0d0d" strokeWidth="1.3" />
+                    </svg>
+                    <span className="store-txt"><small>Coming soon on</small><b>Google Play</b></span>
+                  </span>
+                </div>
               </div>
-              <div className="stores">
-                <span className="store-soon" aria-disabled="true">App Store · soon</span>
-                <span className="store-soon" aria-disabled="true">Google Play · soon</span>
+              <div className="app-side">
+                <div className="iphone">
+                  <div className="iphone-screen">
+                    <Image src="/app-screen.png" alt="Preview of the EXPER app home screen: a live Neon Solstice night in Lagos, your event pass, and popular events this week" fill sizes="260px" />
+                    <span className="iphone-island" aria-hidden="true" />
+                    <span className="iphone-bar" aria-hidden="true" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -98,7 +98,7 @@ function Screen({ step }: { step: number }) {
 }
 
 export function HowItWorks() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(() => STEPS.findIndex((s) => s.name === "Participate"));
 
   return (
     <div className="how-grid">
